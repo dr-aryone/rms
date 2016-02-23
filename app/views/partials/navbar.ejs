@@ -1,7 +1,16 @@
 <nav class="navbar navbar-fixed-top navbar-dark bg-inverse" ng-controller="NavbarCtrl as nav">
-  <a class="navbar-brand" href="#">
-    <strong>CRUD Auth</strong>
+  <a class="navbar-brand" href="/#/">
+    <strong>RocMetalScene.com</strong>
   </a>
+
+  <ul class="nav navbar-nav pull-xs-left" ng-show="nav.isAdmin()">
+    <li class="nav-item">
+      <a href="/#/admin/venues" class="nav-link">Venues</a>
+    </li>
+    <li class="nav-item">
+      <a href="/#/admin/concerts" class="nav-link">Concerts</a>
+    </li>
+  </ul>
 
   <ul class="nav navbar-nav pull-xs-right">
     <li ng-if="nav.isLoggedIn()" class="nav-item">

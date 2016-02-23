@@ -2,13 +2,14 @@
   'use strict';
 
   angular
-    .module('writeAway')
+    .module('rms')
     .factory('authService', ['$http', '$window', authService]);
 
   function authService ($http, $window) {
     var auth = {
       currentUser: currentUser,
       getToken: getToken,
+      isAdmin: isAdmin,
       isLoggedIn: isLoggedIn,
       login: login,
       logout: logout,
@@ -27,6 +28,15 @@
 
     function getToken () {
       return $window.localStorage['writeaway-token'];
+    }
+
+    function isAdmin () {
+      if (auth.isLoggedIn()) {
+        var role = auth.currentUser().role;
+        return role === 'admin';
+      }
+
+      return false;
     }
 
     function isLoggedIn () {

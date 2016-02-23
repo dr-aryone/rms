@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('writeAway')
+    .module('rms')
     .controller('RegisterCtrl', ['authService', '$location', RegisterCtrl]);
 
   function RegisterCtrl (authService, $location) {

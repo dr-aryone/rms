@@ -3,57 +3,18 @@
     <h2>Home Page</h2>
     <hr>
 
-    <div class="row">
-      <div class="col-md-6" ng-controller="LinkFormCtrl as link">
-        <h3>Submit a Link</h3>
+    <h4>Upcoming Concerts</h4>
 
-        <br>
-
-        <form ng-submit="link.submitLink(link.name, link.url)">
-          <fieldset class="form-group">
-            <label for="name">Site Name</label>
-            <input type="text" class="form-control" id="name" ng-model="link.name">
-          </fieldset>
-
-          <fieldset class="form-group">
-            <label for="url">URL</label>
-            <input type="url" class="form-control" id="url" ng-model="link.url">
-          </fieldset>
-
-          <button class="btn btn-primary" type="submit">Submit Link</button>
-        </form>
-      </div>
-
-      <div class="col-md-6">
-        <h3>Links</h3>
-
-        <br>
-
-        <ul>
-          <li ng-repeat="link in home.links">
-            <a ng-href="{{ link.url }}">
-              {{ link.name }}
-            </a> - <em>{{ link.submittedBy.username }}</em>
-            <a ng-show="home.isAdmin" ng-click="home.deleteLink(link)">[x]</a>
-          </li>
-        </ul>
-      </div>
+    <div ng-repeat="concert in home.concerts | upcoming: false | orderBy: 'numericDate'"
+      ng-class="{ 'concert-today': home.isConcertToday(concert) }">
+      <ul>
+        <li>
+          <strong>{{ concert.tourName }}</strong>
+        </li>
+        <li>{{ concert.date }}</li>
+        <li>{{ concert.venue.name }}</li>
+        <li>{{ concert.bands.join(', ') }}</li>
+      </ul>
     </div>
-
-    <h3>My Submissions</h3>
-
-    <br>
-
-    <ul>
-      <li ng-repeat="link in userLinks = (home.links | userLinks: home.userId)">
-        <a ng-href="{{ link.url }}">
-          {{ link.name }}
-        </a> -
-        <a ng-click="home.deleteLink(link)">delete</a>
-      </li>
-      <li ng-hide="userLinks.length">
-        You do not have any current link submissions
-      </li>
-    </ul>
   </div>
 </div>

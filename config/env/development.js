@@ -1,4 +1,4 @@
 module.exports = {
-  db: 'mongodb://localhost/usercrud',
+  db: 'mongodb://localhost/newrms',
   sessionSecret: 'pineapple'
 };

@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h3>Add a Venue</h3>
+
+    <form ng-submit="ev.submit()">
+      <fieldset class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" class="form-control" ng-model="ev.venue.name">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="address">Address:</label>
+        <input type="text" id="address" class="form-control" ng-model="ev.venue.address">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="url">URL:</label>
+        <input type="text" id="url" class="form-control" ng-model="ev.venue.url">
+      </fieldset>
+
+      <button class="btn btn-primary" type="submit">Submit Venue</button>
+    </form>
+  </div>
+</div>

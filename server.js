@@ -9,5 +9,6 @@ var db = mongoose(),
     passport = passport();
 
 app.listen(3000, function () {
-  console.log('Party is at http://localhost:3000');
+  console.log('SLAAAAAAAYEEEEER!!!');
+  console.log('The party is at http://localhost:3000');
 });

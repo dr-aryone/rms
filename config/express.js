@@ -25,6 +25,9 @@ module.exports = function () {
   var apiRoutes = require('../app/routes/api');
   app.use('/api/v1', apiRoutes);
 
+  var protectedRoutes = require('../app/routes/protected');
+  app.use('/api/v1/admin', protectedRoutes);
+
   var pageRoutes = require('../app/routes/pages');
   app.use('/', pageRoutes);
 

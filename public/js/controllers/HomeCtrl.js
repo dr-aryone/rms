@@ -2,18 +2,26 @@
   'use strict';
 
   angular
-    .module('writeAway')
-    .controller('HomeCtrl', ['links', 'linkService', 'authService', HomeCtrl]);
+    .module('rms')
+    .controller('HomeCtrl', ['concerts', HomeCtrl]);
 
-  function HomeCtrl (links, linkService, authService) {
-    this.links = linkService.links;
-    this.isAdmin = authService.currentUser().role;
-    this.userId = authService.currentUser()._id;
+  function HomeCtrl (concerts) {
+    this.concerts = concerts;
 
-    this.deleteLink = deleteLink;
+    this.isConcertToday = isConcertToday;
 
-    function deleteLink (link) {
-      linkService.deleteLink(link);
+    function isConcertToday (concert) {
+      var today = new Date(),
+          m = today.getMonth() + 1,
+          d = today.getDate(),
+          y = today.getFullYear();
+
+      if (m < 10) { m = '0' + m; }
+      if (d < 10) { d = '0' + d; }
+
+      today = m + '-' + d + '-' + y;
+
+      return today === concert.date;
     }
   }
 }());

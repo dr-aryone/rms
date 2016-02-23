@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h3>Add a Concert</h3>
+
+    <form ng-submit="ac.submit()">
+      <fieldset class="form-group">
+        <label for="tourName">Tour Name:</label>
+        <input type="text" id="tourName" class="form-control" ng-model="ac.newConcert.tourName">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="date">Date:</label>
+        <input type="text" id="date" class="form-control" ng-model="ac.newConcert.date">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="venue">Venue:</label>
+        <select class="form-control" id="venue" ng-model="ac.newConcert.venue"
+          ng-options="venue._id as venue.name for venue in ac.venues">
+        </select>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="bands">Bands:</label>
+        <input type="text" id="bands" class="form-control" ng-model="ac.newConcert.bandsList">
+      </fieldset>
+
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <h3>Concerts</h3>
+
+    <label>
+      <input type="checkbox" ng-model="ac.displayOld">
+      Display Old Concerts?
+    </label>
+
+    <div ng-repeat="concert in ac.concerts | upcoming: ac.displayOld | orderBy: 'numericDate'"
+      ng-class="{ 'concert-old': ac.isOldConcert(concert) }">
+      <ul>
+        <li>
+          <strong>{{ concert.tourName }}</strong>
+          <a ng-click="ac.deleteConcert(concert)">[x]</a>
+          <a ng-href="/#/admin/concerts/{{ concert._id }}">[edit]</a>
+        </li>
+        <li>
+          <strong>Date:</strong> {{ concert.date }}
+        </li>
+        <li>
+          <strong>Venue:</strong> {{ concert.venue.name }}
+        </li>
+        <li>
+          <strong>Bands:</strong> {{ concert.bands.join(', ') }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

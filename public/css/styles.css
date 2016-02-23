@@ -4561,4 +4561,10 @@ a.bg-danger:focus, a.bg-danger:hover {
 body {
   padding-top: 70px; }
 
+.concert-today {
+  background-color: #eee; }
+
+.concert-old {
+  color: #f00; }
+
 /*# sourceMappingURL=styles.css.map */

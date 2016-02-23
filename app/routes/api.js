@@ -1,37 +1,26 @@
 var express = require('express'),
     router = express.Router();
 
-var jwt = require('express-jwt'),
-    auth = jwt({ secret: 'SECRET', userProperty: 'payload' });
-
-var users = require('../controllers/users.js'),
-    links = require('../controllers/links.js');
-
-//router.use(auth);
+var venues = require('../controllers/venues.js'),
+    concerts = require('../controllers/concerts.js');
 
 router
-  .route('/users')
-  .get(users.getAllUsers);
+  .route('/concerts')
+  .get(concerts.getConcerts);
 
 router
-  .route('/users/:user')
-  .get(users.getUser)
-  .delete(users.deleteUser);
+  .route('/concerts/:concert')
+  .get(concerts.getConcert);
 
 router
-  .route('/users/:user/setadmin')
-  .put(users.setUserAsAdmin);
+  .route('/venues')
+  .get(venues.getVenues);
 
 router
-  .route('/links')
-  .get(links.getAllLinks)
-  .post(links.createLink);
+  .route('/venues/:venue')
+  .get(venues.getVenue);
 
-router
-  .route('/links/:link')
-  .delete(links.deleteLink);
-
-router.param('user', users.userParam);
-router.param('link', links.linkParam);
+router.param('concert', concerts.concertParam);
+router.param('venue', venues.venueParam);
 
 module.exports = router;
