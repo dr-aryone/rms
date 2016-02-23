@@ -34,6 +34,7 @@ router
 
 router
   .route('/venues')
+  .post(venues.addVenue)
   .get(venues.getVenues);
 
 router
