@@ -1,4 +1,5 @@
 var User = require('mongoose').model('User'),
+    Concert = require('mongoose').model('Concert'),
     passport = require('passport');
 
 exports.getAllUsers = function (req, res, next) {
@@ -13,6 +14,52 @@ exports.getUser = function (req, res, next) {
     if (err) return next(err);
     return res.json(user);
   });
+};
+
+exports.getUserInfo = function (req, res, next) {
+  User
+    .findById(req.user._id, {
+      email: 1,
+      favorites: 1,
+      firstName: 1,
+      lastName: 1,
+      username: 1
+    })
+    .populate('favorites venue')
+    .exec(function (err, user) {
+      if (err) return next(err);
+
+      Concert.populate(user.favorites, { path: 'venue', model: 'Venue' }, function (err) {
+        return res.json(user);
+      });
+    });
+};
+
+exports.saveConcert = function (req, res, next) {
+  if (req.user && req.body) {
+    var user = req.user;
+    user.favorites = user.favorites || [];
+    user.favorites.push(req.body._id);
+    user.save(function (err) {
+      if (err) return next(err);
+      res.send({ message: 'Concert was saved' });
+    });
+  } else {
+    return res.json({ error: 'Missing information' });
+  }
+};
+
+exports.removeConcert = function (req, res, next) {
+  if (req.user && req.concert) {
+    var user = req.user;
+    user.favorites.splice(user.favorites.indexOf(req.concert), 1);
+    user.save(function (err) {
+      if (err) return next(err);
+      res.send({ message: 'Concert was removed' });
+    });
+  } else {
+    return res.json({ error: 'Missing information' });
+  }
 };
 
 exports.createUser = function (req, res, next) {

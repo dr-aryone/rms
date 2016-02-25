@@ -30,7 +30,17 @@
         controllerAs: 'home',
         resolve: {
           concerts: function (concertService) {
-            return concertService.getAll();
+            return concertService.getListing();
+          }
+        }
+      })
+      .when('/dashboard', {
+        templateUrl:  'views/dashboard.html',
+        controller:   'DashboardCtrl',
+        controllerAs: 'dash',
+        resolve: {
+          favorites: function (userService) {
+            return userService.getFavorites();
           }
         }
       })

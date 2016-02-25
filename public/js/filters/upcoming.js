@@ -17,7 +17,7 @@
     }
 
     return function (items, displayOld) {
-      if (displayOld) {
+      if (displayOld || !items) {
         return items;
       }
 

@@ -17,6 +17,10 @@ var UserSchema = new Schema({
     required: 'Username is required',
     trim: true
   },
+  favorites: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Concert'
+  }],
   role: String,
   hash: String,
   salt: String,

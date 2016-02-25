@@ -34,5 +34,8 @@ module.exports = function () {
   var authRoutes = require('../app/routes/auth');
   app.use('/auth', authRoutes);
 
+  var userRoutes = require('../app/routes/users');
+  app.use('/api/v1/users', userRoutes);
+
   return app;
 };

@@ -16,7 +16,6 @@ router
 
 router
   .route('/users/:user')
-  .get(users.getUser)
   .delete(users.deleteUser);
 
 router

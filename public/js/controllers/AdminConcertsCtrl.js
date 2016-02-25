@@ -7,7 +7,7 @@
 
   function AdminConcertsCtrl (concertService, concerts, venues) {
     /* jshint validthis:true */
-    
+
     this.concerts = concerts;
     this.venues = venues;
 
@@ -23,13 +23,7 @@
     }
 
     function isOldConcert (concert) {
-      var today = Date.parse(new Date());
-
-      var date = new Date(concert.numericDate);
-      date.setDate(date.getDate() + 1);
-      date = Date.parse(date);
-
-      return today > date;
+      return concertService.isOldConcert(concert);
     }
 
     function submit () {
