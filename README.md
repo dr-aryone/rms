@@ -1,6 +1,7 @@
-# usercrud
-Just a generic CRUD app with authentication to act as a boiler for future MEAN stack projects
+# RocMetalScene.com
 
-Okay, this is pretty simple. Clone, run npm install and bower install, then run npm server.js in one terminal tab and grunt serve in another. This will start the server and open the app up in your browser.
+This is the codebase for an upcoming website that will help Rochester, NY locals track heavy metal shows in the area. The application displays upcoming shows, allows users to register and save shows they want to see, and there is a basic admin interface for adding shows and venues to the system.
 
-This isn't the next big app or a cool new library. It's just a boilerplate of code that I wrote for myself, to make it way easier to start a MEAN stack project that requires some basic things: persistance layer, user registration, and tools for quick front end prototyping. Take a copy and edit at your pleasure.
+While the app is functional, it is not yet made "pretty" and does not have a way to create an admin user without modifying a user directly in the Mongo CLI. 
+
+This code exists here for practical, educational and job-hunting purposes. Fork if you like and skin it to your suiting, if that's your thing.
