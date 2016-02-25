@@ -5,7 +5,7 @@
 
     <h4>Upcoming Concerts</h4>
 
-    <div ng-repeat="concert in home.concerts | upcoming: true | orderBy: 'numericDate'"
+    <div ng-repeat="concert in home.concerts | upcoming: false | orderBy: 'numericDate'"
       ng-class="{ 'concert-today': home.isConcertToday(concert) }">
       <ul>
         <li>
