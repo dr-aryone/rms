@@ -1,4 +1,5 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.PORT = process.env.PORT || 3000;
 
 var mongoose = require('./config/mongoose'),
     express = require('./config/express'),
@@ -8,7 +9,7 @@ var db = mongoose(),
     app = express(),
     passport = passport();
 
-app.listen(3000, function () {
+app.listen(process.env.PORT, function () {
   console.log('SLAAAAAAAYEEEEER!!!');
-  console.log('The party is at http://localhost:3000');
+  console.log('The party is at http://localhost:' + process.env.PORT);
 });
