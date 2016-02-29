@@ -1,0 +1,31 @@
+.navbar {
+  background-color: $primary_color;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: 'Metal Mania', sans-serif;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+}
+
+.navbar-nav .nav-link,
+.nav-greeting {
+  font-weight: 600;
+  padding-top: 1.1rem;
+  padding-bottom: 0.9rem;
+}
+
+.nav-greeting {
+  font-weight: 400;
+  display: block;
+}
+
+.navbar-nav .nav-link-dashboard {
+  font-size: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0;
+}

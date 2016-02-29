@@ -1,0 +1,42 @@
+body {
+  background: #333 url('../img/dark_wall.png');
+  font-family: 'Open Sans', sans-serif;
+  padding-top: 70px;
+  color: #fff;
+}
+
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    background-image: url('../img/dark_wall_@2X.png');
+  }
+}
+
+a {
+  color: $primary_color;
+  cursor: pointer;
+
+  &:active {
+    color: $primary_color;
+  }
+
+  &:hover {
+    color: lighten($primary_color, 10%);
+    text-decoration: none;
+  }
+}
+
+.btn-primary {
+  background-color: $primary_color;
+  border-color: darken($primary_color, 10%);
+}
+
+.page-title {
+  font-weight: 600;
+  margin: 2rem 0;
+}
+
+.site-footer {
+  font-weight: 600;
+  text-align: center;
+  margin-top: 3rem;
+}

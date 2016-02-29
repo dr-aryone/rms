@@ -1,0 +1,19 @@
+.venue-details {
+  @extend %unstyled-list, %list-item;
+}
+
+.venue-external-link {
+  font-size: 1rem;
+}
+
+.venue-edit-link {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.venue-edit-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}

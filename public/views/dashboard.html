@@ -1,25 +1,29 @@
 <div class="row">
   <div class="col-xs-12">
-    <h3>Your Upcoming Concerts</h3>
+    <h3 class="page-title">
+      Your Upcoming Concerts
+      <label class="filter-old">
+        <input type="checkbox" ng-model="dash.displayOld">
+        Display Old Concerts?
+      </label>
+    </h3>
 
-    <hr>
-
-    <label>
-      <input type="checkbox" ng-model="dash.displayOld">
-      Display Old Concerts?
-    </label>
-
-    <div ng-repeat="concert in dash.favorites | upcoming: dash.displayOld | orderBy: 'numericDate'"
+    <div
+      ng-repeat="concert in dash.favorites | upcoming: dash.displayOld | orderBy: 'numericDate'"
+      class="concert-item"
       ng-class="{ 'concert-old': dash.isOldConcert(concert), 'concert-today': dash.isConcertToday(concert) }">
-      <ul>
-        <li>
+      <ul class="concert-details">
+        <li class="concert-name">
           <strong>{{ concert.tourName }}</strong>
-          <a ng-click="dash.removeConcert(concert)">[x]</a>
         </li>
         <li>{{ concert.date }}</li>
         <li>{{ concert.venue.name }}</li>
         <li>{{ concert.bands.join(', ') }}</li>
       </ul>
+
+      <div class="concert-icons">
+        <a class="concert-icon" ng-click="dash.removeConcert(concert)"><i class="fa fa-times"></i></a>
+      </div>
     </div>
   </div>
 </div>

@@ -14,10 +14,10 @@
 
   <ul class="nav navbar-nav pull-xs-right">
     <li ng-if="nav.isLoggedIn()" class="nav-item">
-      <span class="nav-link"><em>Greetings, {{ nav.getUsername() }}!</em></span>
+      <span class="nav-greeting"><em>Greetings, {{ nav.getUsername() }}!</em></span>
     </li>
     <li ng-show="nav.isLoggedIn()" class="nav-item">
-      <a class="nav-link" href="/#/dashboard">Dashboard</a>
+      <a class="nav-link nav-link-dashboard" href="/#/dashboard"><i class="fa fa-heart"></i></a>
     </li>
     <li ng-show="nav.isLoggedIn()" class="nav-item active">
       <a class="nav-link" ng-click="nav.logout()">Log Out</a>

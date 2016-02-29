@@ -1,0 +1,26 @@
+.concert-item {
+  @extend %list-item;
+}
+
+.concert-name {
+  font-size: 1.5rem;
+}
+
+.concert-icons {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+}
+
+.concert-details {
+  @extend %unstyled-list;
+}
+
+.concert-today {
+  border-left: 10px solid #3C763D;
+}
+
+.concert-old {
+  border-left: 10px solid $primary_color;
+}
